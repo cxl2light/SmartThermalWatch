@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:parentTag="androidx.appcompat.widget.LinearLayoutCompat">
+
+    <com.hq.watch.widget.WidgetSelectorBtn
+        android:id="@+id/device_item_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_7"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/dp_7"
+        android:paddingVertical="@dimen/dp_7"
+        android:textSize="@dimen/sp_10"
+        app:widget_selector_btn_corners_radius="@dimen/dp_7"
+        app:widget_selector_btn_normal_start_color="@color/background_common_background"
+        app:widget_selector_btn_press_start_color="@color/theme_color"
+        app:widget_selector_btn_stroke_color="#909090"
+        app:widget_selector_btn_stroke_color_press="@color/default_btn_stroke_color"
+        app:widget_selector_btn_stroke_width="1dp"
+        app:widget_selector_btn_text_color_normal="@color/text_color_main_body"
+        app:widget_selector_btn_text_color_press="@color/text_color_theme_bg"
+        tools:text="设备：1" />
+
+</merge>

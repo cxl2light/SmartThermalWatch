@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:padding="@dimen/dp_15"
+        android:textColor="@color/text_color_main_body"
+        android:textSize="@dimen/sp_10"
+        tools:text="内容" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.hq.watch.widget.WidgetSelectorBtn
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_8"
+            android:text="@string/cancel"
+            app:widget_selector_btn_normal_start_color="@android:color/transparent"
+            app:widget_selector_btn_press_start_color="@color/background_common_bg_gray"
+            app:widget_selector_btn_text_color="@color/text_color_main_body" />
+
+        <com.hq.watch.widget.WidgetSelectorBtn
+            android:id="@+id/confirm_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingVertical="@dimen/dp_8"
+            android:text="@string/confirm"
+            app:widget_selector_btn_normal_start_color="@android:color/transparent"
+            app:widget_selector_btn_press_start_color="@color/background_common_bg_gray"
+            app:widget_selector_btn_text_color="@color/theme_color" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

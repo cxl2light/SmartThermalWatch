@@ -1,0 +1,2 @@
+g++ main.cpp IR_APP_SDK.cpp Socket.cpp zs_CmdProcess.cpp Thread.cpp ClientThread.cpp wifipacketinfo.cpp wifi_decode_packet.cpp wifi_define.cpp KTime.cpp IR_APP_Private.cpp -o main32.out -pthread 
+

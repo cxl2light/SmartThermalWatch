@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SmartThermalS</string>
+
+    <string name="scan_device">搜索设备</string>
+    <string name="scan_device_stop">停止扫描</string>
+    <string name="connect_device">连接设备</string>
+    <string name="enter_device">进入设备</string>
+    <string name="please_select_connect_device">请选择要连接的设备信息</string>
+
+    <string name="tip_scanning_device">正在扫描设备...</string>
+    <string name="tip_scan_finished_no_device">扫描完成，没有发现任何设备!</string>
+    <string name="tip_open_wi_fi_hotspots">请打开手机热点</string>
+    <string name="tip_open_net">请连接WiFi或打开热点并连接设备</string>
+    <string name="tip_delete_success">删除成功</string>
+    <string name="tip_cur_ip_addr">当前地址：%1$s</string>
+    <string name="tip_hot_spot_no_device">热点没有连接设备</string>
+    <string name="tip_get_device_ip_exception">当前设备IP获取异常：</string>
+
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+</resources>

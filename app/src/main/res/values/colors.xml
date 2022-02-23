@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF4C1B</color>
+    <color name="colorPrimaryDark">#AAFF4C1B</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="default_btn_color_normal">#FF4C1B</color>
+    <color name="default_btn_color_press">#ddFF4C1B</color>
+    <color name="default_btn_color_disable">#66b6b6b6</color>
+    <color name="default_btn_text_color">@android:color/white</color>
+
+    <color name="theme_color">@color/colorPrimary</color>
+    <color name="background_common_background">@android:color/white</color>
+    <color name="default_btn_stroke_color">@color/theme_color</color>
+    <color name="text_color_theme_bg">@android:color/white</color>
+    <color name="text_color_main_body">@android:color/black</color>
+
+    <color name="color_line_light">#E0E0E0</color>
+    <color name="background_common_bg_gray">#EAEAEA</color>
+
+</resources>
