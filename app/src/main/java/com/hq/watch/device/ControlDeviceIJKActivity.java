@@ -27,8 +27,6 @@ import com.hq.watch.utils.ScreenUtils;
 import com.hq.watch.utils.SpUtils;
 import com.hq.watch.utils.ToastUtil;
 
-import java.util.ArrayList;
-
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.widget.IRenderView;
 import tv.danmaku.ijk.media.player.widget.TextureRenderView;
@@ -43,25 +41,11 @@ public class ControlDeviceIJKActivity extends BaseActivity implements IDeviceCtr
     private IjkMediaPlayer mIjkMediaPlayer;
     private View loadingView;
 
-    Thread mThread;
     Boolean isDestroy = false;
 
     String deviceIp = "";
 
     private DeviceCtrlIJKPresenter mCtrlPresenter;
-
-    long delay = 2000;
-    Handler mHandler = new Handler(Looper.getMainLooper()){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what){
-                case 1:
-                    mCtrlPresenter.getDeviceConfig();
-                    break;
-            }
-        }
-    };
 
     static {
         System.loadLibrary("native-lib");
@@ -99,10 +83,6 @@ public class ControlDeviceIJKActivity extends BaseActivity implements IDeviceCtr
         Log.d("getDeviceCurrent","deviceIp=" + deviceIp + ",rtspUrl=" + rtspUrl + ",deviceName=" + deviceName);
         mCtrlPresenter.getDeviceConfig();
 
-        if (mThread == null){
-            mThread = new Thread(new MyRunnable());
-            mThread.start();
-        }
     }
 
     @Override
@@ -257,21 +237,4 @@ public class ControlDeviceIJKActivity extends BaseActivity implements IDeviceCtr
 
     }
 
-    public class MyRunnable implements Runnable {
-        @Override
-        public void run() {
-            // TODO Auto-generated method stub
-            while (!isDestroy) {
-                try {
-                    Message message = new Message();
-                    message.what = 1;
-                    mHandler.sendMessage(message);// 发送消息
-                    Thread.sleep(delay);// 线程暂停10秒，单位毫秒
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 }
