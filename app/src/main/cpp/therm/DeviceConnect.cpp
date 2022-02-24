@@ -21,7 +21,7 @@
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initDevice(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initDevice(JNIEnv *env, jobject jobj, jint n) {
     jint sum = 0;
 //    char ipv4[32] = "192.168.0.1";
     char ipv4[32] = "192.168.0.1606";
@@ -301,7 +301,7 @@ int CallbackGetUpgradeProgress(int channelNo,float nProgress, int endFlag)
  */
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initDeviceChannel(JNIEnv *env, jobject jobj, jstring ip,jobject listenerConfig,jobject listenerUpgrade,jobject listenerAiObjInfo) {
+Java_com_hq_watch_jni_ParamsJni_initDeviceChannel(JNIEnv *env, jobject jobj, jstring ip,jobject listenerConfig,jobject listenerUpgrade,jobject listenerAiObjInfo) {
     jint sum = 0;
     char ipv4[32] = "192.168.0.999";
     //utf-8 字符
@@ -344,7 +344,7 @@ Java_com_hq_monitor_jni_ParamsJni_initDeviceChannel(JNIEnv *env, jobject jobj, j
 **************************************************************/
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initUpgradeFile(JNIEnv *env, jobject jobj,jstring filePath,jobject listenerUpgradeFile) {
+Java_com_hq_watch_jni_ParamsJni_initUpgradeFile(JNIEnv *env, jobject jobj,jstring filePath,jobject listenerUpgradeFile) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     char mPath[512] = "E:\\book\\update\\a.jpg";
     //utf-8 字符
@@ -363,7 +363,7 @@ Java_com_hq_monitor_jni_ParamsJni_initUpgradeFile(JNIEnv *env, jobject jobj,jstr
 
 
 extern "C" JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initUpgradeFile2(JNIEnv *env, jobject instance,jstring source_str,jstring dest_str) {
+Java_com_hq_watch_jni_ParamsJni_initUpgradeFile2(JNIEnv *env, jobject instance,jstring source_str,jstring dest_str) {
     const char* sourcestr = env->GetStringUTFChars(source_str,JNI_FALSE);
     const char* deststr = env->GetStringUTFChars(dest_str,JNI_FALSE);
     FILE * fp;
@@ -394,7 +394,7 @@ Java_com_hq_monitor_jni_ParamsJni_initUpgradeFile2(JNIEnv *env, jobject instance
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initGetDeviceConfig(JNIEnv *env, jobject jobj) {
+Java_com_hq_watch_jni_ParamsJni_initGetDeviceConfig(JNIEnv *env, jobject jobj) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_GET_DEVCONFIG(nChannelNo); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -402,7 +402,7 @@ Java_com_hq_monitor_jni_ParamsJni_initGetDeviceConfig(JNIEnv *env, jobject jobj)
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initGetAnalyseResult(JNIEnv *env, jobject jobj) {
+Java_com_hq_watch_jni_ParamsJni_initGetAnalyseResult(JNIEnv *env, jobject jobj) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_GET_ANALYSERESULT(nChannelNo); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -414,7 +414,7 @@ Java_com_hq_monitor_jni_ParamsJni_initGetAnalyseResult(JNIEnv *env, jobject jobj
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initReboot(JNIEnv *env, jobject jobj) {
+Java_com_hq_watch_jni_ParamsJni_initReboot(JNIEnv *env, jobject jobj) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_REBOOT(nChannelNo); //3.发送命令   // 成功1，失败0
     return result;
@@ -423,7 +423,7 @@ Java_com_hq_monitor_jni_ParamsJni_initReboot(JNIEnv *env, jobject jobj) {
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initDisLink(JNIEnv *env, jobject jobj) {
+Java_com_hq_watch_jni_ParamsJni_initDisLink(JNIEnv *env, jobject jobj) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     IR_APP_SynDisLink(nChannelNo); //3.发送命令
     return 1;
@@ -432,7 +432,7 @@ Java_com_hq_monitor_jni_ParamsJni_initDisLink(JNIEnv *env, jobject jobj) {
 //调用 Java 公有方法
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_CallbackGetJsonCamera2(JNIEnv *env, jobject jobj,int channelNo,jstring pJson) {
+Java_com_hq_watch_jni_ParamsJni_CallbackGetJsonCamera2(JNIEnv *env, jobject jobj,int channelNo,jstring pJson) {
     //1.获取对应 class 的实体类
     jclass jclazz = env->GetObjectClass(jobj);
     //2.获取方法的 id
@@ -446,7 +446,7 @@ Java_com_hq_monitor_jni_ParamsJni_CallbackGetJsonCamera2(JNIEnv *env, jobject jo
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetX(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetX(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_XCORDINATE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -454,7 +454,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetX(JNIEnv *env, jobject jobj, jint n) {
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetY(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetY(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_YCORDINATE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -465,7 +465,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetY(JNIEnv *env, jobject jobj, jint n) {
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetContrast(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetContrast(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_CONTRAST(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -476,7 +476,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetContrast(JNIEnv *env, jobject jobj, jin
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetBrightness(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetBrightness(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_BRIGHTNESS(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -487,7 +487,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetBrightness(JNIEnv *env, jobject jobj, j
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetNoiseReduction(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetNoiseReduction(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_NOISEREDUCTION(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -498,7 +498,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetNoiseReduction(JNIEnv *env, jobject job
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetReticle(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetReticle(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_RETICLE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -506,7 +506,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetReticle(JNIEnv *env, jobject jobj, jint
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetZoom(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetZoom(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_ZOOM(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -517,7 +517,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetZoom(JNIEnv *env, jobject jobj, jint n)
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetSharpness(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetSharpness(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_SHARPNESS(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -528,7 +528,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetSharpness(JNIEnv *env, jobject jobj, ji
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetPalette(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetPalette(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_PALETTE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -536,7 +536,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetPalette(JNIEnv *env, jobject jobj, jint
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetDistanceMeasurement(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetDistanceMeasurement(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_DISTANCEENABLE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -544,7 +544,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetDistanceMeasurement(JNIEnv *env, jobjec
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetTrack(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetTrack(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_TRACEENABLE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -552,7 +552,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetTrack(JNIEnv *env, jobject jobj, jint n
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetPip(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetPip(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_PIP(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;
@@ -560,7 +560,7 @@ Java_com_hq_monitor_jni_ParamsJni_initSetPip(JNIEnv *env, jobject jobj, jint n) 
 
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_hq_monitor_jni_ParamsJni_initSetGPS(JNIEnv *env, jobject jobj, jint n) {
+Java_com_hq_watch_jni_ParamsJni_initSetGPS(JNIEnv *env, jobject jobj, jint n) {
     LOGI("ZeOne=nChannelNo = %d\n\n", nChannelNo);
     int result = IR_APP_SET_GPSENABLE(nChannelNo,n); //3.发送命令   //返回 0，发送命令失败； 成功 1
     return result;

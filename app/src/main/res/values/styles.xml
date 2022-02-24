@@ -28,6 +28,10 @@
     <style name="AppActivityTheme" parent="TranslucentTheme">
     </style>
 
+    <style name="ControlActivityTheme" parent="TranslucentTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="BaseDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="windowNoTitle">true</item>
         <item name="android:windowFrame">@null</item>

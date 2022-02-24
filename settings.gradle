@@ -3,9 +3,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven{ url 'https://maven.aliyun.com/repository/google'}
         maven { url 'https://www.jitpack.io' }
     }
 }
+
 rootProject.name = "SmartThermalWatch"
 include ':app'
 include ':ijkplayer-java'

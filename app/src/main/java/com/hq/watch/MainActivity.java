@@ -28,11 +28,13 @@ import com.hq.watch.base.BaseActivity;
 import com.hq.watch.base.CommonConst;
 import com.hq.watch.base.GlobalConst;
 import com.hq.watch.base.bean.DeviceBaseInfo;
+import com.hq.watch.device.ControlDeviceIJKActivity;
 import com.hq.watch.device.DeviceScanPresenter;
 import com.hq.watch.device.IDeviceScanView;
 import com.hq.watch.dialog.CommonConfirmDialog;
 import com.hq.watch.utils.DensityUtil;
 import com.hq.watch.utils.NetWorkUtil;
+import com.hq.watch.utils.SpUtils;
 import com.hq.watch.utils.ToastUtil;
 import com.hq.watch.view.LoadingView;
 import com.hq.watch.widget.DeviceWidget;
@@ -56,7 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
 
     ArrayList<DeviceBaseInfo> mDeviceList = new ArrayList<>();
 
-    private Boolean scanFinished = false;
+    private Boolean scanSuccess = false;
 
     private int[] intText = {R.string.scan_device, R.string.connect_device};
 
@@ -86,8 +88,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text_btn:
-                initScanStart();
+                if (scanSuccess){
+                    loadingView.setVisibility(View.VISIBLE);
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            SpUtils.saveBean2Sp(mActivity,preSelectedDeviceInfo, SpUtils.SP_DEVICE_INFO);
+                            ControlDeviceIJKActivity.startActivity(MainActivity.this);
+                        }
+                    },2000);
+                }
+                else {
+                    initScanStart();
+                }
                 textBtn.setEnabled(false);
+
                 break;
             case R.id.rlDeviceName:
                 if (mDeviceList.size() < 1){
@@ -100,6 +115,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
                 break;
         }
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        loadingView.setVisibility(View.GONE);
     }
 
     private void initScanStart() {
@@ -238,16 +259,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
             preSelectedDeviceInfo = mDeviceList.get(0);
 
             loadingView.setVisibility(View.GONE);
-            scanFinished = true;
 
             textBtn.setText(getResources().getString(intText[1]));
+            scanSuccess = true;
 
             rlDeviceName.setVisibility(View.VISIBLE);
             tvDeviceName.setText(mDeviceList.get(0).getDevName());
         } else {
             rlDeviceName.setVisibility(View.GONE);
-
             textBtn.setText(getResources().getString(intText[0]));
+            scanSuccess = false;
         }
     }
 
@@ -260,7 +281,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
     public void scanFinished() {
         if (mDeviceList.isEmpty()) {
             loadingView.setVisibility(View.GONE);
-            scanFinished = true;
+            scanSuccess = false;
         }
         textBtn.setEnabled(true);
     }
